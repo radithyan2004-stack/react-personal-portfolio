@@ -84,6 +84,7 @@ export function VelocityText({
   });
 
   const spans = [];
+  const MotionDiv = motion.div;
   for (let i = 0; i < (numCopies ?? 1); i++) {
     spans.push(
       <div className={`flex-shrink-0 flex items-center gap-8 ${className}`} key={i} ref={i === 0 ? copyRef : null}>
@@ -94,12 +95,12 @@ export function VelocityText({
 
   return (
     <div className={`${parallaxClassName} relative overflow-hidden`} style={parallaxStyle}>
-      <motion.div
+      <MotionDiv
         className={`${scrollerClassName} flex whitespace-nowrap`}
         style={{ x, ...scrollerStyle }}
       >
         {spans}
-      </motion.div>
+      </MotionDiv>
     </div>
   );
 }

@@ -33,7 +33,6 @@ export const Javascript = () => <Logo src={javascriptLogo} alt="JavaScript" />;
 export const Typescript = () => <Logo src={typescriptLogo} alt="TypeScript" />;
 export const Node = () => <Logo src={nodeLogo} alt="Node.js" />;
 export const Git = () => <Logo src={gitLogo} alt="Git" />;
-export const Tailwind = () => <Logo src={tailwindLogo} alt="Tailwind CSS" />;
 export const Figma = () => <Logo src={figmalogo} alt="Figma" />;
 export const Php = () => <Logo src={phpLogo} alt="PHP" />;
 export const Mysql = () => <Logo src={mysqlLogo} alt="MySQL" />;

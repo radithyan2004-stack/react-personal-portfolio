@@ -8,6 +8,7 @@ function cn(...classes) {
 }
 
 const RotatingText = forwardRef((props, ref) => {
+  const MotionSpan = motion.span;
   const {
     texts,
     transition = { type: 'spring', damping: 25, stiffness: 300 },
@@ -141,7 +142,7 @@ const RotatingText = forwardRef((props, ref) => {
   }, [next, rotationInterval, auto]);
 
   return (
-    <motion.span
+    <MotionSpan
       className={cn('flex flex-wrap whitespace-pre-wrap relative', mainClassName)}
       {...rest}
       layout
@@ -149,7 +150,7 @@ const RotatingText = forwardRef((props, ref) => {
     >
       <span className="sr-only">{texts[currentTextIndex]}</span>
       <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
-        <motion.span
+        <MotionSpan
           key={currentTextIndex}
           className={cn(splitBy === 'lines' ? 'flex flex-col w-full' : 'flex flex-wrap whitespace-pre-wrap relative')}
           layout
@@ -160,7 +161,7 @@ const RotatingText = forwardRef((props, ref) => {
             return (
               <span key={wordIndex} className={cn('inline-flex', splitLevelClassName)}>
                 {wordObj.characters.map((char, charIndex) => (
-                  <motion.span
+                  <MotionSpan
                     key={charIndex}
                     initial={initial}
                     animate={animate}
@@ -175,15 +176,15 @@ const RotatingText = forwardRef((props, ref) => {
                     className={cn('inline-block', elementLevelClassName)}
                   >
                     {char}
-                  </motion.span>
+                  </MotionSpan>
                 ))}
                 {wordObj.needsSpace && <span className="whitespace-pre"> </span>}
               </span>
             );
           })}
-        </motion.span>
+        </MotionSpan>
       </AnimatePresence>
-    </motion.span>
+    </MotionSpan>
   );
 });
 

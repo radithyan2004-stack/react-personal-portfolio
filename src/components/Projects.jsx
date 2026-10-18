@@ -11,14 +11,10 @@ import { cn } from "@/lib/utils";
 
 import project1Img from '../assets/projects/bug_story.jpg';
 import project2Img from '../assets/projects/project2.png';
-import project3Img from '../assets/projects/Project3.png';
-import project4Img from '../assets/projects/Project4.png';
 import project5Img from '../assets/projects/project5.png';
 import project6Img from '../assets/projects/project6.png';
-import project7Img from '../assets/projects/project7.png';
 import project8Img from '../assets/projects/project8.png';
 import project9Img from '../assets/projects/project9.png';
-import { Truck } from 'lucide-react';
 
 // --- Data for the projects ---
 const projectData = [
@@ -26,20 +22,20 @@ const projectData = [
         title: 'BUG ANATOMY',
         description: 'An AI-powered diagnostic copilot that bridges the gap between raw stack traces and intuitive human understanding.',
         // Use your Cloudinary video URL here:
-        videoUrl: '#',
+        videoUrl: 'https://res.cloudinary.com/dktapziq9/video/upload/v1764394626/1764393871242766_dqfnqn.mp4',
         imageUrl: project1Img, // optional fallback
         liveUrl: 'https://bug-anatomy-visual-storyteller-adhi.streamlit.app/',
-        repoUrl: '#',
-        tags: ['Python', 'Streamlit', 'LangChain-Grq','Mermaid.js'],
+        repoUrl: 'https://github.com/radithyan2004-stack/bug-anatomy-visual-storyteller',
+        tags: ['Python', 'Streamlit', 'LangChain-Groq', 'Mermaid.js'],
     },
     {
-        title: 'Campus Care',
+        title: 'CampusCare',
         description: 'CampusCare helps students submit and track complaints, contact college staff, and receive updates. Includes role-based dashboards, private conversations, and light/dark themes.',
-        videoUrl: '#',
+        videoUrl: 'https://res.cloudinary.com/dktapziq9/video/upload/v1764395075/1764395026924189_ij9257.mov',
         imageUrl: project2Img,
         liveUrl: '#',
         repoUrl: '#',
-        tags: ['PHP','Mysql'],
+        tags: ['PHP', 'MySQL'],
     },
     {
         title: 'ONS Trading Application',

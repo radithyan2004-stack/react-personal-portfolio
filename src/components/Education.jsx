@@ -42,12 +42,12 @@ export default function Education() {
                 </Folder> */}
               </Folder>
                 <Folder element="My Certifications" value="Certifications">
-                  <Folder element="Linkden" value="Linkden">
-                    <File value="Linkden-Intro">
-                      <p>What is Gen AI ?</p>
+                  <Folder element="LinkedIn" value="LinkedIn">
+                    <File value="LinkedIn-Intro">
+                      <p>What is Gen AI?</p>
                     </File>
-                    <File value="linkden-Jr">
-                      <p>Project Managenent Foundations</p>
+                    <File value="LinkedIn-PM">
+                      <p>Project Management Foundations</p>
                     </File>
                   </Folder>
                   <Folder element="Cisco" value="Cisco">
@@ -56,7 +56,7 @@ export default function Education() {
                     </File>
                   </Folder>
                   <Folder element="Google" value="Google">
-                    <File value="Goofle-Cloud">
+                    <File value="Google-Cloud">
                       <p>Data Warehouse & Big Query</p>
                     </File> 
                   </Folder>
