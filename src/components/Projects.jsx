@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 // --- 1. Import your project images ---
 
-import project1Img from '../assets/projects/project1.png';
+import project1Img from '../assets/projects/bug_story.jpg';
 import project2Img from '../assets/projects/project2.png';
 import project3Img from '../assets/projects/Project3.png';
 import project4Img from '../assets/projects/Project4.png';
@@ -23,23 +23,23 @@ import { Truck } from 'lucide-react';
 // --- Data for the projects ---
 const projectData = [
     {
-        title: 'Sahityaa Sangamm',
-        description: 'A modern e-commerce platform built with Blade and Laravel.',
+        title: 'BUG ANATOMY',
+        description: 'An AI-powered diagnostic copilot that bridges the gap between raw stack traces and intuitive human understanding.',
         // Use your Cloudinary video URL here:
-        videoUrl: 'https://res.cloudinary.com/dktapziq9/video/upload/v1764394626/1764393871242766_dqfnqn.mp4',
+        videoUrl: '#',
         imageUrl: project1Img, // optional fallback
-        liveUrl: 'https://sahityaasangamm.in',
+        liveUrl: 'https://bug-anatomy-visual-storyteller-adhi.streamlit.app/',
         repoUrl: '#',
-        tags: ['Blade', 'Laravel', 'MySQL'],
+        tags: ['Python', 'Streamlit', 'LangChain-Grq','Mermaid.js'],
     },
     {
-        title: 'Portfolio Website',
-        description: 'My personal portfolio website built with React and Tailwind CSS.',
-        videoUrl: 'https://res.cloudinary.com/dktapziq9/video/upload/v1764395075/1764395026924189_ij9257.mov',
-        imageUrl: project7Img,
-        liveUrl: 'https://elahi.netlify.app',
-        repoUrl: 'https://github.com/Deadcoder001/React-Personal-Portfolio.git',
-        tags: ['React', 'Tailwind CSS', 'GSAP', 'Spline', 'Framer Motion', 'Lenis'],
+        title: 'Campus Care',
+        description: 'CampusCare helps students submit and track complaints, contact college staff, and receive updates. Includes role-based dashboards, private conversations, and light/dark themes.',
+        videoUrl: '#',
+        imageUrl: project2Img,
+        liveUrl: '#',
+        repoUrl: '#',
+        tags: ['PHP','Mysql'],
     },
     {
         title: 'ONS Trading Application',
