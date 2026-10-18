@@ -32,7 +32,7 @@ export default function Education() {
                 </Folder>
                 <Folder element="SVGV HIGHER SECONDARY" value="BA">
                   <File value="BA-HS">
-                    <p>Higher Secondary (2021)</p>
+                    <p>Higher Secondary (2020-2022)</p>
                   </File>
                 </Folder>
                  {/* <Folder element="Barpeta Govt. HS School" value="BHS">
@@ -42,24 +42,24 @@ export default function Education() {
                 </Folder> */}
               </Folder>
                 <Folder element="My Certifications" value="Certifications">
-                  {/* <Folder element="Cisco" value="Cisco">
-                    <File value="Cisco-Intro">
-                      <p>Introduction to Cybersecurity</p>
+                  <Folder element="Linkden" value="Linkden">
+                    <File value="Linkden-Intro">
+                      <p>What is Gen AI ?</p>
                     </File>
-                    <File value="Cisco-Jr">
-                      <p>Jr. Cybersecurity Analyst</p>
-                    </File>
-                  </Folder>
-                  <Folder element="IBM" value="IBM">
-                    <File value="IBM-Python">
-                      <p>Python 101 for Data Science</p>
+                    <File value="linkden-Jr">
+                      <p>Project Managenent Foundations</p>
                     </File>
                   </Folder>
-                  <Folder element="AWS" value="AWS">
-                    <File value="AWS-Cloud">
-                      <p>Cloud Foundations (AWS Academy Graduate)</p>
-                    </File> */}
-                  {/* </Folder> */}
+                  <Folder element="Cisco" value="Cisco">
+                    <File value="Cisco-Python">
+                      <p>Networking Foundations & Fundamentals</p>
+                    </File>
+                  </Folder>
+                  <Folder element="Google" value="Google">
+                    <File value="Goofle-Cloud">
+                      <p>Data Warehouse & Big Query</p>
+                    </File> 
+                  </Folder>
                 </Folder>
             </Tree>
           </div>
