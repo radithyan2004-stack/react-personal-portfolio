@@ -55,14 +55,14 @@ const projectData = [
         repoUrl: '#',
         tags: ['React', 'Node.js', 'MongoDB'],
     },
-    {
-        title: 'Tea Country',
-        description: 'A Tourist website created with React.',
-        // --- 2. Use the imported variable here ---
-        imageUrl: project2Img,
-        liveUrl: 'https://teacountry.in',
-        repoUrl: '#',
-        tags: ['React', 'Vue', 'Tailwind CSS'],
+    // {
+    //     title: 'Tea Country',
+    //     description: 'A Tourist website created with React.',
+    //     // --- 2. Use the imported variable here ---
+    //     imageUrl: project2Img,
+    //     liveUrl: 'https://teacountry.in',
+    //     repoUrl: '#',
+    //     tags: ['React', 'Vue', 'Tailwind CSS'],
     },
     // {
     //     title: 'MeghaRise Products',
@@ -73,39 +73,8 @@ const projectData = [
     //     repoUrl: '#',
     //     tags: ['React', 'Vue', 'Tailwind CSS'],
     // },
-    {
-        title: 'Scabbard Tech',
-        description: 'A Digital Marketing website built with React, Vue and Tailwind CSS.',
-        videoUrl: 'https://res.cloudinary.com/dktapziq9/video/upload/v1764397211/1764397136159111_zlcckk.mp4',
-        liveUrl: 'https://scabbardtech.com',
-        repoUrl: '#',
-        tags: ['React', 'Vue', 'Tailwind CSS'],
-    },
-
-        {
-        title: 'Jana Kalyan Swastha sewa',
-        description: 'A Healthcare website built with HTML and php.',
-        imageUrl: project6Img,
-        liveUrl: 'https://jkssewa.org',
-        repoUrl: '#',
-        tags: ['HTML', 'CSS', 'JavaScript','PHP', 'MySQL'],
-    },
-    {
-        title: 'Janaewa',
-        description: 'A NGO website built with HTML, CSS and JavaScript.',
-        imageUrl: project8Img,
-        liveUrl: 'https://janasewa.org',
-        repoUrl: '#',
-        tags: ['HTML', 'CSS', 'JavaScript'],
-    },
-        {
-        title: 'Earmacs',
-        description: 'A Hotel Management website built with Wordpress and PHP.',
-        imageUrl: project9Img,
-        liveUrl: 'https://earmacs.com',
-        repoUrl: '#',
-        tags: ['Wordpress', 'PHP'],
-    },
+  
+   
 ];
 
 // --- Single Project Card Component ---
