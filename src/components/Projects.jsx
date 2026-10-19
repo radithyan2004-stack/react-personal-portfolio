@@ -12,9 +12,9 @@ import { cn } from "@/lib/utils";
 import project1Img from '../assets/projects/bug_story.jpg';
 import project2Img from '../assets/projects/project2.png';
 import project5Img from '../assets/projects/project5.png';
-// import project6Img from '../assets/projects/project6.png';
-// import project8Img from '../assets/projects/project8.png';
-// import project9Img from '../assets/projects/project9.png';
+import project6Img from '../assets/projects/project6.png';
+import project8Img from '../assets/projects/project8.png';
+import project9Img from '../assets/projects/project9.png';
 
 // --- Data for the projects ---
 const projectData = [
@@ -46,16 +46,24 @@ const projectData = [
         repoUrl: 'https://github.com/Deadcoder001/ons_trading.git',
         tags: ['Django', 'yfinance', 'Bootstrap 5'],
     },
-   
-    // {
-    //     title: 'Tea Country',
-    //     description: 'A Tourist website created with React.',
-    //     // --- 2. Use the imported variable here ---
-    //     imageUrl: project2Img,
-    //     liveUrl: 'https://teacountry.in',
-    //     repoUrl: '#',
-    //     tags: ['React', 'Vue', 'Tailwind CSS'],
+    {
+        title: 'Creatorhub',
+        description: 'An Influencer Marketing platform for Creators and brands built with React.',
+        videoUrl: 'https://res.cloudinary.com/dktapziq9/video/upload/v1764396382/1764396334647746_qruqaf.mp4',
 
+        liveUrl: 'https://creatorhub.in',
+        repoUrl: '#',
+        tags: ['React', 'Node.js', 'MongoDB'],
+    },
+    {
+        title: 'Tea Country',
+        description: 'A Tourist website created with React.',
+        // --- 2. Use the imported variable here ---
+        imageUrl: project2Img,
+        liveUrl: 'https://teacountry.in',
+        repoUrl: '#',
+        tags: ['React', 'Vue', 'Tailwind CSS'],
+    },
     // {
     //     title: 'MeghaRise Products',
     //     description: 'A modern e-commerce platform using React (Its Frontend Only For Now).',
@@ -65,8 +73,39 @@ const projectData = [
     //     repoUrl: '#',
     //     tags: ['React', 'Vue', 'Tailwind CSS'],
     // },
-  
-   
+    {
+        title: 'Scabbard Tech',
+        description: 'A Digital Marketing website built with React, Vue and Tailwind CSS.',
+        videoUrl: 'https://res.cloudinary.com/dktapziq9/video/upload/v1764397211/1764397136159111_zlcckk.mp4',
+        liveUrl: 'https://scabbardtech.com',
+        repoUrl: '#',
+        tags: ['React', 'Vue', 'Tailwind CSS'],
+    },
+
+        {
+        title: 'Jana Kalyan Swastha sewa',
+        description: 'A Healthcare website built with HTML and php.',
+        imageUrl: project6Img,
+        liveUrl: 'https://jkssewa.org',
+        repoUrl: '#',
+        tags: ['HTML', 'CSS', 'JavaScript','PHP', 'MySQL'],
+    },
+    {
+        title: 'Janaewa',
+        description: 'A NGO website built with HTML, CSS and JavaScript.',
+        imageUrl: project8Img,
+        liveUrl: 'https://janasewa.org',
+        repoUrl: '#',
+        tags: ['HTML', 'CSS', 'JavaScript'],
+    },
+        {
+        title: 'Earmacs',
+        description: 'A Hotel Management website built with Wordpress and PHP.',
+        imageUrl: project9Img,
+        liveUrl: 'https://earmacs.com',
+        repoUrl: '#',
+        tags: ['Wordpress', 'PHP'],
+    },
 ];
 
 // --- Single Project Card Component ---
