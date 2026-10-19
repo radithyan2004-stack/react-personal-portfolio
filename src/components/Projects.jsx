@@ -6,9 +6,7 @@ import { Highlighter } from "@/components/ui/highlighter";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { cn } from "@/lib/utils";
 
-
 // --- 1. Import your project images ---
-
 import project1Img from '../assets/projects/bug_story.jpg';
 import project2Img from '../assets/projects/project2.png';
 import project5Img from '../assets/projects/project5.png';
@@ -21,9 +19,8 @@ const projectData = [
     {
         title: 'BUG ANATOMY',
         description: 'An AI-powered diagnostic copilot that bridges the gap between raw stack traces and intuitive human understanding.',
-        // Use your Cloudinary video URL here:
         videoUrl: 'https://res.cloudinary.com/dktapziq9/video/upload/v1764394626/1764393871242766_dqfnqn.mp4',
-        imageUrl: project1Img, // optional fallback
+        imageUrl: project1Img,
         liveUrl: 'https://bug-anatomy-visual-storyteller-adhi.streamlit.app/',
         repoUrl: 'https://github.com/radithyan2004-stack/bug-anatomy-visual-storyteller',
         tags: ['Python', 'Streamlit', 'LangChain-Groq', 'Mermaid.js'],
@@ -50,7 +47,6 @@ const projectData = [
         title: 'Creatorhub',
         description: 'An Influencer Marketing platform for Creators and brands built with React.',
         videoUrl: 'https://res.cloudinary.com/dktapziq9/video/upload/v1764396382/1764396334647746_qruqaf.mp4',
-
         liveUrl: 'https://creatorhub.in',
         repoUrl: '#',
         tags: ['React', 'Node.js', 'MongoDB'],
@@ -58,21 +54,11 @@ const projectData = [
     {
         title: 'Tea Country',
         description: 'A Tourist website created with React.',
-        // --- 2. Use the imported variable here ---
         imageUrl: project2Img,
         liveUrl: 'https://teacountry.in',
         repoUrl: '#',
         tags: ['React', 'Vue', 'Tailwind CSS'],
     },
-    // {
-    //     title: 'MeghaRise Products',
-    //     description: 'A modern e-commerce platform using React (Its Frontend Only For Now).',
-    //     // --- 2. Use the imported variable here ---
-    //     imageUrl: project3Img,
-    //     liveUrl: 'https://meghariseproducts.com',
-    //     repoUrl: '#',
-    //     tags: ['React', 'Vue', 'Tailwind CSS'],
-    // },
     {
         title: 'Scabbard Tech',
         description: 'A Digital Marketing website built with React, Vue and Tailwind CSS.',
@@ -81,14 +67,13 @@ const projectData = [
         repoUrl: '#',
         tags: ['React', 'Vue', 'Tailwind CSS'],
     },
-
-        {
+    {
         title: 'Jana Kalyan Swastha sewa',
         description: 'A Healthcare website built with HTML and php.',
         imageUrl: project6Img,
         liveUrl: 'https://jkssewa.org',
         repoUrl: '#',
-        tags: ['HTML', 'CSS', 'JavaScript','PHP', 'MySQL'],
+        tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
     },
     {
         title: 'Janaewa',
@@ -98,7 +83,7 @@ const projectData = [
         repoUrl: '#',
         tags: ['HTML', 'CSS', 'JavaScript'],
     },
-        {
+    {
         title: 'Earmacs',
         description: 'A Hotel Management website built with Wordpress and PHP.',
         imageUrl: project9Img,
@@ -159,14 +144,6 @@ const ProjectCard = ({ project }) => (
                     ))}
                 </div>
                 <div className="flex items-center justify-start space-x-3 mt-auto pt-1">
-                    {/* <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 font-semibold text-xs transition-colors duration-300"
-                    >
-                        Live Demo
-                    </a> */}
                     {project.repoUrl && project.repoUrl !== '#' && (
                         <a
                             href={project.repoUrl}
@@ -191,7 +168,6 @@ export default function Projects() {
     return (
         <section
             id="projects"
-            // --- 1. Added bg-white (or bg-background) here ---
             className="relative w-full text-black py-20 overflow-hidden bg-white"
         >
             <InteractiveGridPattern
@@ -199,11 +175,9 @@ export default function Projects() {
                     "absolute inset-0 h-full w-full",
                     "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
                 )}
-                // --- 2. Added the missing props from your demo ---
                 width={20}
                 height={20}
                 squares={[80, 80]}
-                // You can set a static color for the squares
                 squaresClassName="fill-gray-100"
             />
 
@@ -223,7 +197,6 @@ export default function Projects() {
                     ))}
                 </div>
 
-                {/* View More / View Less Button */}
                 <div className="text-center mt-12">
                     {!showAll && projectData.length > 3 && (
                         <button
