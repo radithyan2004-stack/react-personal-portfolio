@@ -14,7 +14,6 @@ import project6Img from '../assets/projects/project6.png';
 import project8Img from '../assets/projects/project8.png';
 import project9Img from '../assets/projects/project9.png';
 
-// --- Data for the projects ---
 const projectData = [
   {
     title: 'BUG ANATOMY',
@@ -23,10 +22,8 @@ const projectData = [
     videoUrl:
       'https://res.cloudinary.com/dktapziq9/video/upload/v1764394626/1764393871242766_dqfnqn.mp4',
     imageUrl: project1Img,
-    liveUrl:
-      'https://bug-anatomy-visual-storyteller-adhi.streamlit.app/',
-    repoUrl:
-      'https://github.com/radithyan2004-stack/bug-anatomy-visual-storyteller',
+    liveUrl: 'https://bug-anatomy-visual-storyteller-adhi.streamlit.app/',
+    repoUrl: 'https://github.com/radithyan2004-stack/bug-anatomy-visual-storyteller',
     tags: ['Python', 'Streamlit', 'LangChain-Groq', 'Mermaid.js'],
   },
   {
@@ -52,8 +49,7 @@ const projectData = [
   },
   {
     title: 'Creatorhub',
-    description:
-      'An Influencer Marketing platform for Creators and brands built with React.',
+    description: 'An Influencer Marketing platform for Creators and brands built with React.',
     videoUrl:
       'https://res.cloudinary.com/dktapziq9/video/upload/v1764396382/1764396334647746_qruqaf.mp4',
     liveUrl: 'https://creatorhub.in',
@@ -103,10 +99,9 @@ const projectData = [
   },
 ];
 
-// Small helper to create a stable key when titles might not be unique
-const stableKey = (project, index) => (project.title ? project.title : `project-${index}`);
+const stableKey = (project, index) =>
+  project.title ? project.title : `project-${index}`;
 
-// --- Single Project Card Component ---
 const ProjectCard = memo(({ project }) => {
   const { title, description, videoUrl, imageUrl, repoUrl, tags } = project;
 
@@ -125,7 +120,7 @@ const ProjectCard = memo(({ project }) => {
       className="h-full"
       style={{ border: '1px solid #e5e7eb' }}
     >
-      <div className="flex flex-col h-full bg-white rounded-[16px] overflow-hidden">
+      <div className="flex flex-col h-full bg-white rounded-[12px] overflow-hidden">
         {videoUrl ? (
           <video
             src={videoUrl}
@@ -134,7 +129,7 @@ const ProjectCard = memo(({ project }) => {
             muted
             playsInline
             preload="metadata"
-            className="w-full h-1/2 object-cover bg-gray-100"
+            className="w-full h-1/2 object-cover"
             poster={imageUrl}
             aria-label={`${title} preview`}
           />
@@ -143,14 +138,13 @@ const ProjectCard = memo(({ project }) => {
             src={imageUrl}
             alt={title}
             loading="lazy"
-            className="w-full h-1/2 object-cover bg-gray-100"
+            className="w-full h-1/2 object-cover"
           />
         )}
 
-        <div className="p-4 flex-grow flex flex-col">
-          <h3 className="text-lg font-bold text-gray-900 mb-1">{title}</h3>
-
-          <p className="text-gray-600 text-sm mb-2 flex-grow">{description}</p>
+        <div className="p-3 flex-grow flex flex-col">
+          <h3 className="text-base font-bold text-gray-900 mb-1">{title}</h3>
+          <p className="text-gray-600 text-xs mb-2 flex-grow">{description}</p>
 
           <div className="flex flex-wrap gap-1 mb-2">
             {Array.isArray(tags) &&
@@ -164,7 +158,7 @@ const ProjectCard = memo(({ project }) => {
               ))}
           </div>
 
-          <div className="flex items-center gap-3 mt-auto pt-1">
+          <div className="flex items-center space-x-3 mt-auto pt-1">
             {repoUrl && repoUrl !== '#' && (
               <a
                 href={repoUrl}
@@ -185,17 +179,14 @@ const ProjectCard = memo(({ project }) => {
 
 ProjectCard.displayName = 'ProjectCard';
 
-// --- Main Projects Section Component ---
 export default function Projects() {
   const [showAll, setShowAll] = useState(false);
-
-  // For performance, avoid re-slicing on every render unnecessarily
   const displayedProjects = showAll ? projectData : projectData.slice(0, 3);
 
   return (
     <section
       id="projects"
-      className="relative w-full text-black py-20 overflow-hidden bg-white"
+      className="relative w-full text-black py-16 overflow-hidden bg-white"
     >
       <InteractiveGridPattern
         className={cn(
@@ -208,17 +199,16 @@ export default function Projects() {
         squaresClassName="fill-gray-100"
       />
 
-      <div className="relative z-10 px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold font-pixel underline-wavy-yellow inline-block">
+      <div className="relative z-10 px-2">
+        <div className="text-center mb-8">
+          <h2 className="text-5xl font-bold font-pixel underline-wavy-yellow inline-block">
             <Highlighter action="underline" color="#FFD700">
               Projects 🚀
             </Highlighter>
           </h2>
         </div>
 
-        {/* responsive grid: 1 column on mobile, 2 on sm, 3 on lg */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-lg mx-auto">
+        <div className="grid grid-cols-3 gap-6 max-w-screen-lg mx-auto">
           {displayedProjects.map((project, index) => (
             <div key={stableKey(project, index)} className="aspect-square">
               <ProjectCard project={project} />
@@ -226,15 +216,15 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-10">
           {!showAll && projectData.length > 3 && (
-            <button onClick={() => setShowAll(true)} className="btn px-6 py-2">
+            <button onClick={() => setShowAll(true)} className="btn">
               View More
             </button>
           )}
 
           {showAll && (
-            <button onClick={() => setShowAll(false)} className="btn px-6 py-2">
+            <button onClick={() => setShowAll(false)} className="btn">
               View Less
             </button>
           )}
