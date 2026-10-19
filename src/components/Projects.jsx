@@ -12,9 +12,9 @@ import { cn } from "@/lib/utils";
 import project1Img from '../assets/projects/bug_story.jpg';
 import project2Img from '../assets/projects/project2.png';
 import project5Img from '../assets/projects/project5.png';
-import project6Img from '../assets/projects/project6.png';
-import project8Img from '../assets/projects/project8.png';
-import project9Img from '../assets/projects/project9.png';
+// import project6Img from '../assets/projects/project6.png';
+// import project8Img from '../assets/projects/project8.png';
+// import project9Img from '../assets/projects/project9.png';
 
 // --- Data for the projects ---
 const projectData = [
@@ -46,15 +46,7 @@ const projectData = [
         repoUrl: 'https://github.com/Deadcoder001/ons_trading.git',
         tags: ['Django', 'yfinance', 'Bootstrap 5'],
     },
-    {
-        title: 'Creatorhub',
-        description: 'An Influencer Marketing platform for Creators and brands built with React.',
-        videoUrl: 'https://res.cloudinary.com/dktapziq9/video/upload/v1764396382/1764396334647746_qruqaf.mp4',
-
-        liveUrl: 'https://creatorhub.in',
-        repoUrl: '#',
-        tags: ['React', 'Node.js', 'MongoDB'],
-    },
+   
     // {
     //     title: 'Tea Country',
     //     description: 'A Tourist website created with React.',
