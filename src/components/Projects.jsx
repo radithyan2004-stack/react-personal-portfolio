@@ -6,13 +6,10 @@ import { Highlighter } from "@/components/ui/highlighter";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { cn } from "@/lib/utils";
 
-// --- 1. Import your project images ---
+// --- Import only images used by the first 3 projects ---
 import project1Img from '../assets/projects/bug_story.jpg';
 import project2Img from '../assets/projects/project2.png';
 import project5Img from '../assets/projects/project5.png';
-import project6Img from '../assets/projects/project6.png';
-import project8Img from '../assets/projects/project8.png';
-import project9Img from '../assets/projects/project9.png';
 
 const projectData = [
   {
@@ -24,7 +21,7 @@ const projectData = [
     imageUrl: project1Img,
     liveUrl: 'https://bug-anatomy-visual-storyteller-adhi.streamlit.app/',
     repoUrl: 'https://github.com/radithyan2004-stack/bug-anatomy-visual-storyteller',
-    tags: ['Python', 'Streamlit', 'LangChain-Groq', 'Mermaid.js'],
+    tags: ['Python', 'Streamlit', 'LangChain-Groq', 'Mermaid.js']
   },
   {
     title: 'CampusCare',
@@ -35,7 +32,7 @@ const projectData = [
     imageUrl: project2Img,
     liveUrl: '#',
     repoUrl: '#',
-    tags: ['PHP', 'MySQL'],
+    tags: ['PHP', 'MySQL']
   },
   {
     title: 'ONS Trading Application',
@@ -45,62 +42,12 @@ const projectData = [
     imageUrl: project5Img,
     liveUrl: 'https://ons-trading.onrender.com',
     repoUrl: 'https://github.com/Deadcoder001/ons_trading.git',
-    tags: ['Django', 'yfinance', 'Bootstrap 5'],
-  },
-  {
-    title: 'Creatorhub',
-    description: 'An Influencer Marketing platform for Creators and brands built with React.',
-    videoUrl:
-      'https://res.cloudinary.com/dktapziq9/video/upload/v1764396382/1764396334647746_qruqaf.mp4',
-    liveUrl: 'https://creatorhub.in',
-    repoUrl: '#',
-    tags: ['React', 'Node.js', 'MongoDB'],
-  },
-  {
-    title: 'Tea Country',
-    description: 'A Tourist website created with React.',
-    imageUrl: project2Img,
-    liveUrl: 'https://teacountry.in',
-    repoUrl: '#',
-    tags: ['React', 'Vue', 'Tailwind CSS'],
-  },
-  {
-    title: 'Scabbard Tech',
-    description: 'A Digital Marketing website built with React, Vue and Tailwind CSS.',
-    videoUrl:
-      'https://res.cloudinary.com/dktapziq9/video/upload/v1764397211/1764397136159111_zlcckk.mp4',
-    liveUrl: 'https://scabbardtech.com',
-    repoUrl: '#',
-    tags: ['React', 'Vue', 'Tailwind CSS'],
-  },
-  {
-    title: 'Jana Kalyan Swastha sewa',
-    description: 'A Healthcare website built with HTML and php.',
-    imageUrl: project6Img,
-    liveUrl: 'https://jkssewa.org',
-    repoUrl: '#',
-    tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
-  },
-  {
-    title: 'Janaewa',
-    description: 'A NGO website built with HTML, CSS and JavaScript.',
-    imageUrl: project8Img,
-    liveUrl: 'https://janasewa.org',
-    repoUrl: '#',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-  },
-  {
-    title: 'Earmacs',
-    description: 'A Hotel Management website built with Wordpress and PHP.',
-    imageUrl: project9Img,
-    liveUrl: 'https://earmacs.com',
-    repoUrl: '#',
-    tags: ['Wordpress', 'PHP'],
-  },
+    tags: ['Django', 'yfinance', 'Bootstrap 5']
+  }
 ];
 
 const stableKey = (project, index) =>
-  project.title ? project.title : `project-${index}`;
+  (project && project.title) ? project.title : `project-${index}`;
 
 const ProjectCard = memo(({ project }) => {
   const { title, description, videoUrl, imageUrl, repoUrl, tags } = project;
@@ -129,7 +76,7 @@ const ProjectCard = memo(({ project }) => {
             muted
             playsInline
             preload="metadata"
-            className="w-full h-1/2 object-cover"
+            className="w-full h-48 sm:h-56 lg:h-64 object-cover"
             poster={imageUrl}
             aria-label={`${title} preview`}
           />
@@ -138,7 +85,7 @@ const ProjectCard = memo(({ project }) => {
             src={imageUrl}
             alt={title}
             loading="lazy"
-            className="w-full h-1/2 object-cover"
+            className="w-full h-48 sm:h-56 lg:h-64 object-cover"
           />
         )}
 
@@ -181,12 +128,13 @@ ProjectCard.displayName = 'ProjectCard';
 
 export default function Projects() {
   const [showAll, setShowAll] = useState(false);
-  const displayedProjects = showAll ? projectData : projectData.slice(0, 3);
+  // projectData only contains first 3 projects now; View More not needed
+  const displayedProjects = projectData;
 
   return (
     <section
       id="projects"
-      className="relative w-full text-black py-16 overflow-hidden bg-white"
+      className="relative w-full text-black py-12 overflow-hidden bg-white"
     >
       <InteractiveGridPattern
         className={cn(
@@ -199,36 +147,21 @@ export default function Projects() {
         squaresClassName="fill-gray-100"
       />
 
-      <div className="relative z-10 px-2">
+      <div className="relative z-10 px-4">
         <div className="text-center mb-8">
-          <h2 className="text-5xl font-bold font-pixel underline-wavy-yellow inline-block">
-            <Highlighter action="underline" color="#FFD700">
-              Projects 🚀
-            </Highlighter>
+          <h2 className="text-4xl sm:text-5xl font-bold font-pixel underline-wavy-yellow inline-block">
+            <Highlighter action="underline" color="#FFD700">Projects 🚀</Highlighter>
           </h2>
         </div>
 
-        <div className="grid grid-cols-3 gap-6 max-w-screen-lg mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {displayedProjects.map((project, index) => (
-            <div key={stableKey(project, index)} className="aspect-square">
+            <div key={stableKey(project, index)} className="aspect-square max-w-[360px] mx-auto">
               <ProjectCard project={project} />
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-10">
-          {!showAll && projectData.length > 3 && (
-            <button onClick={() => setShowAll(true)} className="btn">
-              View More
-            </button>
-          )}
-
-          {showAll && (
-            <button onClick={() => setShowAll(false)} className="btn">
-              View Less
-            </button>
-          )}
-        </div>
       </div>
     </section>
   );
