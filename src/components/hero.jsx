@@ -15,7 +15,6 @@ export default function Hero() {
     <section className="gold-wave-banner relative w-full h-screen overflow-hidden isolate">
       <div className="gold-wave-layer absolute inset-0 z-0 pointer-events-none" aria-hidden="true" />
 
-      {/* 1. Spline Background */}
       <div className="hero-spline absolute inset-0 z-10 w-full h-full">
         <Spline
           scene="https://prod.spline.design/9xuF1oRA5poA131s/scene.splinecode"
@@ -23,7 +22,6 @@ export default function Hero() {
         />
       </div>
 
-      {/* 2. Overlay Content */}
       <div className="relative z-20 flex items-center justify-center w-full h-full p-8 text-center bg-black/20 pointer-events-none sm:p-16 md:p-24">
         <div className="max-w-md pointer-events-auto">
           <h1 className="font-pixel flex items-center justify-center gap-x-2 text-5xl font-bold text-white md:text-7xl lg:text-8xl [text-shadow:_0_3px_5px_rgb(0_0_0_/_40%)]">
