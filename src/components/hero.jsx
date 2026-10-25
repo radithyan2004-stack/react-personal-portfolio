@@ -8,13 +8,15 @@ import { WordRotate } from "@/components/ui/word-rotate";
  * A modern, minimal hero section component.
  */
 export default function Hero() {
-  const skills = ['Data Scientist', 'Front & Backend Developer', 'AI Engineer', 'NLP','Creative Coder'];
+  const skills = ['Data Scientist', 'Front & Backend Developer', 'AI Engineer', 'NLP', 'Creative Coder'];
   const greetings = ["Hello", "Hola", "Ciao", "مرحبا"];
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="gold-wave-banner relative w-full h-screen overflow-hidden isolate">
+      <div className="gold-wave-layer absolute inset-0 z-0 pointer-events-none" aria-hidden="true" />
+
       {/* 1. Spline Background */}
-      <div className="absolute inset-0 z-10 w-full h-full">
+      <div className="hero-spline absolute inset-0 z-10 w-full h-full">
         <Spline
           scene="https://prod.spline.design/9xuF1oRA5poA131s/scene.splinecode"
           aria-label="Interactive 3D animation"
@@ -22,15 +24,13 @@ export default function Hero() {
       </div>
 
       {/* 2. Overlay Content */}
-      {/* Content is aligned to the center */}
       <div className="relative z-20 flex items-center justify-center w-full h-full p-8 text-center bg-black/20 pointer-events-none sm:p-16 md:p-24">
         <div className="max-w-md pointer-events-auto">
           <h1 className="font-pixel flex items-center justify-center gap-x-2 text-5xl font-bold text-white md:text-7xl lg:text-8xl [text-shadow:_0_3px_5px_rgb(0_0_0_/_40%)]">
             <WordRotate words={greetings} />
             {", I'm"}
           </h1>
-          
-          {/* Rotating Text for Skills */}
+
           <div className="flex justify-center mt-4">
             <RotatingText
               texts={skills}
@@ -40,8 +40,7 @@ export default function Hero() {
               staggerFrom="last"
             />
           </div>
-        
-          {/* Call-to-action buttons */}
+
           <div className="flex justify-center gap-4 mt-8">
             <a
               href="#projects"
@@ -58,7 +57,7 @@ export default function Hero() {
                   }
                 }, 100);
               }}
-              className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold text-black transition-all duration-300 bg-white rounded-lg shadow-lg pointer-events-auto hover:bg-gray-200 hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold text-black transition-all duration-300 bg-white rounded-lg shadow-lg pointer-events-auto hover:bg-gray-200"
             >
               View My Work
               <ArrowRight size={20} />
@@ -67,7 +66,7 @@ export default function Hero() {
               href="https://drive.google.com/file/d/1HK4bhibG6IiV88TXR0xnf3SQQ8ISDN2n/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold text-white transition-all duration-300 bg-transparent border border-white rounded-lg shadow-lg pointer-events-auto hover:bg-white hover:text-white hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-3 text-base font-semibold text-white transition-all duration-300 bg-transparent border border-white rounded-lg shadow-lg pointer-events-auto hover:bg-white/10"
             >
               View Resume
             </a>
