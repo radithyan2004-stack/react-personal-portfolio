@@ -32,7 +32,7 @@ const SOCIALS = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/radithyan7979/', icon: ICONS.LinkedIn },
   { name: 'GitHub', url: 'https://github.com/radithyan2004-stack', icon: ICONS.GitHub },
   //{ name: 'X', url: 'https://x.com/Ashif_Elahi01', icon: ICONS.Twitter },
-  { name: 'Mail', url: 'radithyan2004@gmail.com', icon: ICONS.Mail },
+  { name: 'Mail', url: '#contact', icon: ICONS.Mail },
 ];
 
 export default function SocialMagnet() {
@@ -42,6 +42,16 @@ export default function SocialMagnet() {
       top: 0,
       behavior: "smooth",
     });
+  };
+
+  const handleSocialClick = (e, social) => {
+    if (social.name === "Mail") {
+      e.preventDefault();
+      document.getElementById("contact")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
   return (
@@ -74,9 +84,10 @@ export default function SocialMagnet() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={social.name === "Mail" ? "#contact" : social.url}
+                    target={social.name === "Mail" ? undefined : "_blank"}
+                    rel={social.name === "Mail" ? undefined : "noopener noreferrer"}
+                    onClick={(e) => handleSocialClick(e, social)}
                     aria-label={social.name}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
