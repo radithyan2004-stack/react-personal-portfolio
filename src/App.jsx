@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
-import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Hero from './components/hero';
 import Navbar from './components/Navbar';
@@ -18,6 +17,20 @@ import './App.css'
 
 function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [hasFinePointer] = useState(() =>
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  );
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+
+  useEffect(() => {
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateMotionPreference = () => setPrefersReducedMotion(motionPreference.matches);
+
+    motionPreference.addEventListener('change', updateMotionPreference);
+    return () => motionPreference.removeEventListener('change', updateMotionPreference);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,38 +39,31 @@ function App() {
 
     window.addEventListener('resize', handleResize);
 
-    // 1. Initialize Lenis with custom settings for scroll speed
-    const lenis = new Lenis({
-      duration: 1.2, // Affects the animation duration
-      lerp: 0.05, // Lower values (e.g., 0.05) are smoother and "floatier". Higher values (e.g., 0.2) are more responsive.
-      smoothWheel: true,
-    });
+    let lenis;
+    let unsubscribe;
+    if (!isMobile && !prefersReducedMotion) {
+      lenis = new Lenis({
+        duration: 0.9,
+        lerp: 0.08,
+        smoothWheel: true,
+        autoRaf: true,
+      });
+      unsubscribe = lenis.on('scroll', ScrollTrigger.update);
+    }
 
-    // 2. Connect Lenis to GSAP's ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
-
-    // 3. Use GSAP's ticker to drive Lenis's animation loop
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
-
-    // 4. Cleanup on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
-      lenis.destroy();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      gsap.ticker.remove(lenis.raf);
+      unsubscribe?.();
+      lenis?.destroy();
     };
-  }, []);
+  }, [isMobile, prefersReducedMotion]);
 
   return (
     <>
-      {!isMobile && <SmoothCursor />}
+      {hasFinePointer && !prefersReducedMotion && <SmoothCursor />}
       <Navbar />
-      <main>
-        <Hero />
+      <main className="page-load-reveal">
+        <Hero shouldReduceMotion={prefersReducedMotion} />
         <About />
         <Skills />
         <Education />

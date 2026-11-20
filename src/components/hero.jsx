@@ -1,25 +1,54 @@
-import React from 'react';
-import Spline from '@splinetool/react-spline';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import RotatingText from './RotatingText';
 import { WordRotate } from "@/components/ui/word-rotate";
 
+const Spline = lazy(() => import('@splinetool/react-spline'));
+
 /**
  * A modern, minimal hero section component.
  */
-export default function Hero() {
-  const skills = ['Data Scientist', 'Front & Backend Developer', 'AI Engineer', 'NLP', 'Creative Coder'];
-  const greetings = ["Hello", "Hola", "Ciao", "مرحبا"];
+export default function Hero({ shouldReduceMotion }) {
+  const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
+  const skills = ['Data Scientist & Analyst', 'Front & Backend Developer', 'AI Engineer', 'NLP','Big Data','Hadoop & Spark','Computer Vison Engineer','ML'];
+  const greetings = ["Hello", "Hola", "Ciao", "مرحبا","नमस्ते"];
+//Data Analyst & Scientist | Machine Learning Specialists | Big Data | Hadoop & Spark | Al Specialists | NLP | Computer Vision Engineer
+
+  useEffect(() => {
+    if (shouldReduceMotion) {
+      setShouldLoadSpline(false);
+      return undefined;
+    }
+
+    let idleCallbackId;
+    let timeoutId;
+    const loadSpline = () => setShouldLoadSpline(true);
+
+    if ('requestIdleCallback' in window) {
+      idleCallbackId = window.requestIdleCallback(loadSpline, { timeout: 1500 });
+    } else {
+      timeoutId = window.setTimeout(loadSpline, 400);
+    }
+
+    return () => {
+      if (idleCallbackId !== undefined && 'cancelIdleCallback' in window) {
+        window.cancelIdleCallback(idleCallbackId);
+      }
+      window.clearTimeout(timeoutId);
+    };
+  }, [shouldReduceMotion]);
 
   return (
-    <section className="gold-wave-banner relative w-full h-screen overflow-hidden isolate">
-      <div className="gold-wave-layer absolute inset-0 z-0 pointer-events-none" aria-hidden="true" />
-
-      <div className="hero-spline absolute inset-0 z-10 w-full h-full">
-        <Spline
-          scene="https://prod.spline.design/9xuF1oRA5poA131s/scene.splinecode"
-          aria-label="Interactive 3D animation"
-        />
+    <section className="relative w-full h-screen overflow-hidden isolate">
+      <div className="hero-spline absolute inset-0 z-10 w-full h-full bg-neutral-400">
+        {shouldLoadSpline && !shouldReduceMotion && (
+          <Suspense fallback={null}>
+            <Spline
+              scene="https://prod.spline.design/9xuF1oRA5poA131s/scene.splinecode"
+              aria-label="Interactive 3D animation"
+            />
+          </Suspense>
+        )}
       </div>
 
       <div className="relative z-20 flex items-center justify-center w-full h-full p-8 text-center bg-black/20 pointer-events-none sm:p-16 md:p-24">

@@ -102,12 +102,14 @@
   );
 }
 
-* {
-  cursor: none !important;
-}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  * {
+    cursor: none !important;
+  }
 
-input,
-textarea,
-select {
-  cursor: text !important;
+  input,
+  textarea,
+  select {
+    cursor: text !important;
+  }
 }

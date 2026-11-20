@@ -1,15 +1,16 @@
 "use client"
 
-import React, { useState, memo } from 'react';
+import React, { memo } from 'react';
 import GlareHover from './GlareHover';
+import VideoPreview from './VideoPreview';
 import { Highlighter } from "@/components/ui/highlighter";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { cn } from "@/lib/utils";
 
 // --- Import only images used by the first 3 projects ---
-import project1Img from '../assets/projects/bug_story.jpg';
-import project2Img from '../assets/projects/project2.png';
-import project5Img from '../assets/projects/project5.png';
+import project1Img from '../assets/projects/bug_story.webp';
+import project2Img from '../assets/projects/project2.webp';
+import project5Img from '../assets/projects/project5.webp';
 
 const projectData = [
   {
@@ -69,22 +70,18 @@ const ProjectCard = memo(({ project }) => {
     >
       <div className="flex flex-col h-full bg-white rounded-[12px] overflow-hidden">
         {videoUrl ? (
-          <video
+          <VideoPreview
             src={videoUrl}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
             className="w-full h-48 sm:h-56 lg:h-64 object-cover"
             poster={imageUrl}
-            aria-label={`${title} preview`}
+            label={`${title} preview`}
           />
         ) : (
           <img
             src={imageUrl}
             alt={title}
             loading="lazy"
+            decoding="async"
             className="w-full h-48 sm:h-56 lg:h-64 object-cover"
           />
         )}
@@ -127,10 +124,6 @@ const ProjectCard = memo(({ project }) => {
 ProjectCard.displayName = 'ProjectCard';
 
 export default function Projects() {
-  const [showAll, setShowAll] = useState(false);
-  // projectData only contains first 3 projects now; View More not needed
-  const displayedProjects = projectData;
-
   return (
     <section
       id="projects"
@@ -155,7 +148,7 @@ export default function Projects() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {displayedProjects.map((project, index) => (
+          {projectData.map((project, index) => (
             <div key={stableKey(project, index)} className="aspect-square max-w-[360px] mx-auto">
               <ProjectCard project={project} />
             </div>

@@ -20,7 +20,7 @@ function handleNavClick(e, id) {
  */
 export default function Navbar() {
   return (
-    <header className="absolute top-0 left-0 right-0 z-30 p-4 sm:p-6">
+    <header className="page-load-reveal-chrome absolute top-0 left-0 right-0 z-30 p-4 sm:p-6">
       <nav className="container flex items-center justify-between mx-auto">
         {/* Logo */}
         <a href="#">

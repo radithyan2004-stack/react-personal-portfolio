@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Highlighter } from "@/components/ui/highlighter";
+import VideoPreview from './VideoPreview';
 // --- 1. Import your project images ---
 
-import project1Img from '../assets/projects/bug_story.jpg';
-import project2Img from '../assets/projects/project2.png';
-import project5Img from '../assets/projects/project5.png';
-import project6Img from '../assets/projects/project6.png';
-import project8Img from '../assets/projects/project8.png';
-import project9Img from '../assets/projects/project9.png';
+import project1Img from '../assets/projects/bug_story.webp';
+import project2Img from '../assets/projects/project2.webp';
+import project5Img from '../assets/projects/project5.webp';
+import project6Img from '../assets/projects/project6.webp';
+import project8Img from '../assets/projects/project8.webp';
+import project9Img from '../assets/projects/project9.webp';
 import { Truck } from 'lucide-react';
 
 // --- Data for the projects ---
@@ -120,19 +121,18 @@ export default function ProjectsMobile() {
                     <div key={idx} className="bg-white rounded-xl shadow p-4 flex flex-col">
                         <div className="w-full h-40 rounded-lg overflow-hidden mb-3 bg-gray-100">
                             {project.videoUrl ? (
-                                <video
+                                <VideoPreview
                                     src={project.videoUrl}
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
                                     className="w-full h-full object-cover"
                                     poster={project.imageUrl}
+                                    label={`${project.title} preview`}
                                 />
                             ) : (
                                 <img
                                     src={project.imageUrl}
                                     alt={project.title}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-cover"
                                 />
                             )}
